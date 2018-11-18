@@ -11,4 +11,5 @@ typedef struct options{
         int show_help; 
 } options;
 
+void show_help(const char *progname);
 #endif

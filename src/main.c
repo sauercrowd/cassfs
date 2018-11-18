@@ -4,6 +4,7 @@
 #include <fuse.h>
 #include <stddef.h>
 #include <string.h>
+#include <assert.h>
 
 static struct fuse_operations cassfs_oper = {
         .init           = cassfs_init,

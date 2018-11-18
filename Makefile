@@ -7,7 +7,7 @@ TARGET = cassfs
 all: cassfs
 
 cassfs: obj $(OBJS)
-	$(CC) $ $(CFLAGS) $(LDFLAGS) $(OBJS) -o $(TARGET)
+	$(CC) $(OBJS) $(LDFLAGS) -o $(TARGET)
 
 obj:
 	mkdir obj
