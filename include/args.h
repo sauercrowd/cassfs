@@ -12,5 +12,4 @@ typedef struct options{
 } options;
 
 void show_help(const char *progname);
-
 #endif
