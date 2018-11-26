@@ -1,11 +1,14 @@
 #include "fs.h"
 #include "args.h"
 
+#include <fcntl.h>
+#include <stdio.h>
 #include <fuse.h>
 #include <stddef.h>
 #include <string.h>
+#include <assert.h>
 
-static struct fuse_operations cassfs_oper = {
+struct fuse_operations cassfs_oper = {
         .init           = cassfs_init,
         .getattr        = cassfs_getattr,
         .readdir        = cassfs_readdir,
@@ -15,7 +18,7 @@ static struct fuse_operations cassfs_oper = {
 
 #define OPTION(t, p) \
         { t, offsetof(options, p), 1 }
-static const struct fuse_opt option_spec[] = {
+const struct fuse_opt option_spec[] = {
         OPTION("--name=%s", filename),
         OPTION("--contents=%s", contents),
         OPTION("-h", show_help),
@@ -23,7 +26,7 @@ static const struct fuse_opt option_spec[] = {
         FUSE_OPT_END
 };
 
-static options opts;
+options opts;
 
 int main(int argc, char** argv){
 	int ret;
